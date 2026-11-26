@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Reddy University | Student Dashboard</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+    .carousel-item img {
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: brightness(0.65);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-mortarboard-fill me-2"></i>Malla Reddy University
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#overview">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#timetable">Timetable</a></li>
+          <li class="nav-item"><a class="nav-link" href="#exams">Exams</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item ms-lg-3">
+            <button class="btn btn-light btn-sm fw-semibold" data-bs-toggle="modal" data-bs-target="#profileModal">
+              <i class="bi bi-person-circle me-1"></i> I B.Tech (R-26)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER (GRID SYSTEM) -->
+  <div class="container my-4" id="overview">
+
+    <!-- 2. ALERTS (Academic Notifications & Fee Reminders) -->
+    <div class="alert alert-warning alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+      <i class="bi bi-exclamation-triangle-fill fs-5 me-2"></i>
+      <div>
+        <strong>Fee Reminder:</strong> Semester II tuition and exam fee payment deadline is <strong>30th November</strong>.
+        <button class="btn btn-sm btn-warning ms-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#feeModal">Pay Now</button>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="alert alert-info alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+      <i class="bi bi-megaphone-fill fs-5 me-2"></i>
+      <div>
+        <strong>Academic Notice:</strong> R-26 Mid-Term I examinations begin next Monday. Download your hall ticket from Student Services.
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- 3. CAROUSEL (Campus Announcements & Events) -->
+    <div id="campusCarousel" class="carousel slide mb-4 shadow-sm rounded-3" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner rounded-3">
+        <div class="carousel-item active">
+          <img src="https://unsplash.com" class="d-block w-100" alt="Campus">
+          <div class="carousel-caption text-start">
+            <span class="badge bg-primary mb-1">Academic Update</span>
+            <h5>Welcome to MRU Student Portal (R-26)</h5>
+            <p class="d-none d-sm-block">Track attendance, exam schedules, and campus services in one place.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://unsplash.com" class="d-block w-100" alt="Hackathon">
+          <div class="carousel-caption text-start">
+            <span class="badge bg-success mb-1">Tech Fest</span>
+            <h5>Annual Hackathon & AI Workshop Registrations Open</h5>
+            <p class="d-none d-sm-block">Build real-world projects and win exciting prizes.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://unsplash.com" class="d-block w-100" alt="Library">
+          <div class="carousel-caption text-start">
+            <span class="badge bg-warning text-dark mb-1">Library</span>
+            <h5>24/7 Digital Library Access Enabled</h5>
+            <p class="d-none d-sm-block">Access IEEE journals, e-books, and previous question papers online.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#campusCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#campusCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- 4. CARDS (Attendance, CGPA, Fee Status, Upcoming Exams) -->
+    <div class="row g-3 mb-4">
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100 border-start border-4 border-success">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase small">Overall Attendance</h6>
+            <h2 class="fw-bold text-success mb-1">86.5%</h2>
+            <p class="small text-muted mb-2">Safe zone (Min required: 75%)</p>
+            <div class="progress" style="height: 6px;">
+              <div class="progress-bar bg-success" style="width: 86.5%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100 border-start border-4 border-primary">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase small">Current CGPA</h6>
+            <h2 class="fw-bold text-primary mb-1">8.92</h2>
+            <p class="small text-muted mb-0">Regulation: R-26 | Credits: 24/24</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100 border-start border-4 border-warning">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase small">Pending Fee</h6>
+            <h2 class="fw-bold text-warning mb-1">₹ 12,500</h2>
+            <button class="btn btn-sm btn-outline-warning mt-1" data-bs-toggle="modal" data-bs-target="#feeModal">View Breakdown</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100 border-start border-4 border-danger">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase small">Next Exam</h6>
+            <h5 class="fw-bold text-danger mb-1">Web Technologies</h5>
+            <p class="small text-muted mb-0">Dec 02, 2026 | 10:00 AM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. TABLES (Timetable & Examination Schedule) -->
+    <div class="row g-4 mb-4">
+      <!-- Daily Timetable -->
+      <div class="col-12 col-lg-6" id="timetable">
+        <div class="card h-100">
+          <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+            <h5 class="mb-0 fw-bold"><i class="bi bi-calendar-week text-primary me-2"></i>Today's Timetable</h5>
+            <span class="badge bg-primary">CSE - Sec A</span>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Room</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>09:30 - 10:30</td>
+                    <td>Data Structures</td>
+                    <td>Block A-204</td>
+                    <td><span class="badge bg-success">Attended</span></td>
+                  </tr>
+                  <tr>
+                    <td>10:30 - 11:30</td>
+                    <td>Web Technologies</td>
+                    <td>Lab 3</td>
+                    <td><span class="badge bg-primary">Ongoing</span></td>
+                  </tr>
+                  <tr>
+                    <td>11:30 - 12:30</td>
+                    <td>Discrete Mathematics</td>
+                    <td>Block A-204</td>
+                    <td><span class="badge bg-secondary">Upcoming</span></td>
+                  </tr>
+                  <tr>
+                    <td>01:30 - 03:30</td>
+                    <td>Python Programming Lab</td>
+                    <td>CS Lab 1</td>
+                    <td><span class="badge bg-secondary">Upcoming</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examination Schedule -->
+      <div class="col-12 col-lg-6" id="exams">
+        <div class="card h-100">
